@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public PlayerMovement movementScript;   // Referencing another script
+    public PlayerMovement movement;   // Referencing another script
 
     // Start is called before the first frame update
     void OnCollisionEnter(Collision collisionInfo)
@@ -12,7 +12,8 @@ public class PlayerCollision : MonoBehaviour
         if (collisionInfo.collider.tag == "Obstacle")
         {
             Debug.Log("Ow");
-            movementScript.enabled = false;     // Disables player movement on collision
+            movement.enabled = false;     // Disables player movement on collision
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 }

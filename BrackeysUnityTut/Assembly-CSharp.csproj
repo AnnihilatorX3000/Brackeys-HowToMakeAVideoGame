@@ -56,8 +56,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\TextScore.cs" />
+     <None Include="Assets\Fonts\LICENSE.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>A:/Unity Hub/Unity Projects/BrackeysUnityTut/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

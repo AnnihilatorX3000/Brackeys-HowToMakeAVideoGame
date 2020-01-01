@@ -32,5 +32,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+
+        //Check if player has fallen over edge
+        if (rb.position.y < 0f)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 }
