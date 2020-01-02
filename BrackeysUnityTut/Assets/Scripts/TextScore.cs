@@ -9,13 +9,29 @@ public class TextScore : MonoBehaviour
     public Text score;
     public PlayerMovement movement;
 
+    float zPos;
+
     // Update is called once per frame
     void Update()
     {
+        zPos = player.position.z;
+
         //Update only if object not hit
         if (movement.enabled)
         {
-            score.text = "Score: " + Math.Floor(player.position.z).ToString();
+            //If player misses endTrigger
+            if (zPos > 1000)
+            {
+                score.text = "MISS!";
+            }
+            else
+            {
+                score.text = "Distance Left: " + (1000 - Math.Floor(zPos)).ToString();
+            }
+        }
+        else
+        {
+            score.text = "OW";
         }
         
     }

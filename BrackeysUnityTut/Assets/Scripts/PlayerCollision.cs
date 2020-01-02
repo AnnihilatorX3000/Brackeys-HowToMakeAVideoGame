@@ -13,7 +13,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Ow");
             movement.enabled = false;     // Disables player movement on collision
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().LevelLose();
         }
     }
 }

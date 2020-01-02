@@ -11,12 +11,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Game Initialised");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     
     void FixedUpdate()
     {
@@ -24,11 +18,11 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
         //Player movement - not the most efficient way
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") || Input.GetKey("left"))
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") || Input.GetKey("right"))
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
@@ -36,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         //Check if player has fallen over edge
         if (rb.position.y < 0f)
         {
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().LevelLose();
         }
     }
 }
